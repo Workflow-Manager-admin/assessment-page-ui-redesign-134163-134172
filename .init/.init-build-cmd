@@ -1,0 +1,4 @@
+{
+    "command": "npm install && npx tsc --noEmit && npm test -- --ci",
+    "working_directory": "/home/kavia/workspace/code-generation/assessment-page-ui-redesign-134163-134172/assessment_ui_frontend"
+}
