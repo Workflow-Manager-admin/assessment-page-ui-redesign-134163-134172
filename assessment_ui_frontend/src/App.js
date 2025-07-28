@@ -3,8 +3,14 @@ import './App.css';
 
 // SVG ICON COMPONENTS
 function UserAvatarIcon({ size = 40 }) {
-  // Modern, professional-looking colored user icon SVG
-  // Uses a gradient background and softer face shape for a more memorable, lively avatar
+  // PUBLIC_INTERFACE
+  /**
+   * A clearly modern, visually distinctive, side-facing SVG avatar icon
+   * - Blue main accent
+   * - Profile illustration (side view, not a frontal user)
+   * - Flat look with bold separation from background
+   * - Matches modern dashboard UIs
+   */
   return (
     <svg
       width={size}
@@ -16,49 +22,44 @@ function UserAvatarIcon({ size = 40 }) {
       xmlns="http://www.w3.org/2000/svg"
       aria-label="User Avatar"
     >
-      <defs>
-        <radialGradient id="avatar-bg-grad" cx="50%" cy="50%" r="70%" fx="50%" fy="40%">
-          <stop offset="0%" stopColor="#e3f0fc" />
-          <stop offset="100%" stopColor="#cbe7fa" />
-        </radialGradient>
-        <linearGradient id="avatar-accent" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="5%" stopColor="#1976d2" />
-          <stop offset="95%" stopColor="#4592e6" />
-        </linearGradient>
-      </defs>
-      {/* Soft round background */}
-      <circle cx="20" cy="20" r="19" fill="url(#avatar-bg-grad)" stroke="url(#avatar-accent)" strokeWidth="2"/>
-      {/* Face area */}
-      <ellipse cx="20" cy="15.8" rx="6.8" ry="7.2" fill="#fff" stroke="#1976d2" strokeWidth="1.2"/>
-      {/* Hair */}
+      {/* Large blue background, bolder outline */}
+      <circle cx="20" cy="20" r="19" fill="#e3f0fc" stroke="#1976d2" strokeWidth="2.4"/>
+      {/* Profile face silhouette - side view */}
       <path
-        d="M14.5 16.5c.5-5 11-5 11 0"
-        stroke="#1976d2"
-        strokeWidth="1"
-        strokeLinecap="round"
-        fill="none"
-        opacity="0.26"
-      />
-      {/* Smile */}
-      <path
-        d="M16.9 19.6c.6 1 4.6 1 5.2 0"
+        d="M24.5 14.2c-.9-2.2-2.7-3.6-4.7-3.6-2.2 0-4.3 1.7-4.7 4.3-.5 2.9 1.2 6.1 2.5 7.9 1.8 2.6 6.9 1.7 8.1-3.2.43-1.6.01-3.2-.92-5.4Z"
+        fill="#fff"
         stroke="#4592e6"
-        strokeWidth="1.07"
-        strokeLinecap="round"
-        fill="none"
+        strokeWidth="1.05"
       />
-      {/* Eyes */}
-      <ellipse cx="17.6" cy="17.2" rx="0.65" ry="0.90" fill="#1976d2" />
-      <ellipse cx="22.4" cy="17.2" rx="0.65" ry="0.90" fill="#1976d2" />
-      {/* Modern shadow under chin */}
-      <ellipse cx="20" cy="23.8" rx="5.3" ry="2.2" fill="#e3f0fc" opacity="0.46"/>
-      {/* Shoulders */}
+      {/* Side profile features: ear */}
+      <ellipse cx="18.3" cy="17.9" rx="0.62" ry="1" fill="#b0b9c3" />
+      {/* Side profile features: nose */}
       <path
-        d="M12 32c.5-3.8 6-5.3 8-5.3s7.5 1.5 8 5.3"
-        stroke="url(#avatar-accent)"
-        strokeWidth="1.15"
-        fill="#e9f5fe"
+        d="M20.9 16.5c.13.6.11 1-.22 1.11"
+        stroke="#7b8da0"
+        strokeWidth="0.7"
+        strokeLinecap="round"
       />
+      {/* Eye (side, not two dots) */}
+      <ellipse cx="22.15" cy="16.6" rx="0.45" ry="0.57" fill="#1976d2" />
+      {/* Mouth/smile - side profile */}
+      <path
+        d="M21.5 19.39c.2.4.9.47 1.25.01"
+        stroke="#51c185"
+        strokeWidth="0.8"
+        strokeLinecap="round"
+      />
+      {/* Chin/neck shadow */}
+      <ellipse cx="20.0" cy="23.2" rx="4.7" ry="1.5" fill="#dbeafe" opacity="0.5" />
+      {/* Shoulders (offset, modern edge) */}
+      <path
+        d="M13.2 32.5c.5-3.7 5-5 8-5s7.5 1.3 8 5.3"
+        fill="#eaf6fd"
+        stroke="#1976d2"
+        strokeWidth="1.05"
+      />
+      {/* Blue accent circle for modern style */}
+      <circle cx="27.2" cy="11.1" r="2.7" fill="#1976d2" opacity="0.17" />
     </svg>
   );
 }
