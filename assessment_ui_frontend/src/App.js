@@ -127,12 +127,22 @@ function App() {
               {/* CENTER - Details */}
               <div className="card-section card-section-details">
                 <div className="assessment-title">{assessment.name}</div>
-                <div className="designation-row">
-                  <span className="designation-icon" title="Role"><BriefcaseIcon /></span>
-                  <span className="designation-text">{assessment.role}</span>
-                  <span className="exp-sep" />
-                  <span className="exp-icon" title="Years of Experience"><ExperienceIcon /></span>
-                  <span className="exp-text">{assessment.yearsExp} yrs exp</span>
+                {/* Refined section: Designation and experience each on a clean single line */}
+                <div className="meta-line-row">
+                  <div className="single-meta meta-designation">
+                    <span className="meta-icon" aria-label="Role" title="Role">
+                      <BriefcaseIcon />
+                    </span>
+                    <span className="meta-text meta-role" title={assessment.role}>{assessment.role}</span>
+                  </div>
+                  <div className="single-meta meta-experience">
+                    <span className="meta-icon" aria-label="Experience" title="Years of Experience">
+                      <ExperienceIcon />
+                    </span>
+                    <span className="meta-text meta-exp">
+                      {assessment.yearsExp} yrs experience
+                    </span>
+                  </div>
                 </div>
                 <div className="assignee-row">
                   <span className="assignee-name">{assessment.assignee}</span>
