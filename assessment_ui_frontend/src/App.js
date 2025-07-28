@@ -3,23 +3,61 @@ import './App.css';
 
 // SVG ICON COMPONENTS
 function UserAvatarIcon({ size = 40 }) {
-  // Simple blue outline avatar icon as SVG
+  // Modern, professional-looking colored user icon SVG
+  // Uses a gradient background and softer face shape for a more memorable, lively avatar
   return (
     <svg
       width={size}
       height={size}
       viewBox="0 0 40 40"
-      fill="none"
       className="avatar-svg"
-      style={{ display: 'block' }}
+      style={{ display: "block" }}
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-label="User Avatar"
     >
-      <circle cx="20" cy="20" r="18" stroke="#1976d2" strokeWidth="2.5" fill="white" />
-      <ellipse cx="20" cy="16" rx="6" ry="6.5" stroke="#1976d2" strokeWidth="1.5" fill="#ecf7fa" />
+      <defs>
+        <radialGradient id="avatar-bg-grad" cx="50%" cy="50%" r="70%" fx="50%" fy="40%">
+          <stop offset="0%" stopColor="#e3f0fc" />
+          <stop offset="100%" stopColor="#cbe7fa" />
+        </radialGradient>
+        <linearGradient id="avatar-accent" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="5%" stopColor="#1976d2" />
+          <stop offset="95%" stopColor="#4592e6" />
+        </linearGradient>
+      </defs>
+      {/* Soft round background */}
+      <circle cx="20" cy="20" r="19" fill="url(#avatar-bg-grad)" stroke="url(#avatar-accent)" strokeWidth="2"/>
+      {/* Face area */}
+      <ellipse cx="20" cy="15.8" rx="6.8" ry="7.2" fill="#fff" stroke="#1976d2" strokeWidth="1.2"/>
+      {/* Hair */}
       <path
-        d="M10 32c0-4.4 4.48-8 10-8s10 3.6 10 8"
+        d="M14.5 16.5c.5-5 11-5 11 0"
         stroke="#1976d2"
-        strokeWidth="1.5"
+        strokeWidth="1"
+        strokeLinecap="round"
         fill="none"
+        opacity="0.26"
+      />
+      {/* Smile */}
+      <path
+        d="M16.9 19.6c.6 1 4.6 1 5.2 0"
+        stroke="#4592e6"
+        strokeWidth="1.07"
+        strokeLinecap="round"
+        fill="none"
+      />
+      {/* Eyes */}
+      <ellipse cx="17.6" cy="17.2" rx="0.65" ry="0.90" fill="#1976d2" />
+      <ellipse cx="22.4" cy="17.2" rx="0.65" ry="0.90" fill="#1976d2" />
+      {/* Modern shadow under chin */}
+      <ellipse cx="20" cy="23.8" rx="5.3" ry="2.2" fill="#e3f0fc" opacity="0.46"/>
+      {/* Shoulders */}
+      <path
+        d="M12 32c.5-3.8 6-5.3 8-5.3s7.5 1.5 8 5.3"
+        stroke="url(#avatar-accent)"
+        strokeWidth="1.15"
+        fill="#e9f5fe"
       />
     </svg>
   );
