@@ -7,8 +7,8 @@
   --text-light: #b0b9c3;
   --border-color: #e9ecef;
   --accent-blue: #1976d2;
-  --card-spacing-v: 16px;
-  --card-radius: 16px;
+  --card-spacing-v: 18px;
+  --card-radius: 18px;
   --avatar-bg: #ecf7fa;
   --role-badge-bg: #f5faff;
   --btn-green-bg: #eafaf1;
@@ -16,6 +16,8 @@
   --control-radius: 8px;
   --button-bg: #007bff;
   --button-text: #ffffff;
+  --shadow-light: 0 2px 12px rgba(32, 62, 85, 0.08);
+  --shadow-card: 0 4px 20px rgba(32, 62, 85, 0.06);
 }
 
 [data-theme="dark"] {
@@ -98,17 +100,25 @@ body, .App {
 
 .assessment-card {
   background: var(--bg-primary);
-  box-shadow: 0 2px 12px rgba(32,62,85,0.06);
+  box-shadow: var(--shadow-card);
   border-radius: var(--card-radius);
-  padding: 20px 24px 18px 24px;
+  padding: 24px 28px 22px 28px;
   display: flex;
-  gap: 0 18px;
+  gap: 0 20px;
   align-items: flex-start;
-  border: 1.5px solid var(--border-color);
+  border: 1px solid var(--border-color);
+  transition: all 0.2s ease;
+  margin-bottom: 4px;
+}
+
+.assessment-card:hover {
+  box-shadow: 0 6px 24px rgba(32, 62, 85, 0.12);
+  transform: translateY(-1px);
 }
 
 .assessment-card-alt {
   background: var(--bg-secondary);
+  border: 1px solid rgba(25, 118, 210, 0.08);
 }
 
 .card-section {
@@ -152,21 +162,22 @@ body, .App {
   color: var(--text-primary);
   font-weight: 700;
   font-size: 18px;
-  letter-spacing: 0;
-  margin-bottom: 1px;
+  letter-spacing: -0.01em;
+  margin-bottom: 6px;
+  line-height: 1.3;
 }
 
 .designation-row {
   display: flex;
   align-items: center;
-  gap: 0 8px;
+  gap: 0 10px;
   font-size: 14px;
   color: var(--text-muted);
-  margin-bottom: 0;
+  margin-bottom: 2px;
 }
 
 .designation-icon {
-  margin-right: 3px;
+  margin-right: 4px;
   display: flex;
   align-items: center;
 }
@@ -174,19 +185,19 @@ body, .App {
 .designation-text {
   color: var(--text-muted);
   font-weight: 500;
-  margin-right: 7px;
+  margin-right: 8px;
   font-size: 14px;
   display: flex;
   align-items: center;
 }
 
 .exp-sep {
-  width: 10px;
+  width: 12px;
   display: inline-block;
 }
 
 .exp-icon {
-  margin-right: 2px;
+  margin-right: 3px;
   display: flex;
   align-items: center;
 }
@@ -242,27 +253,44 @@ body, .App {
 }
 
 .primary-action-btn {
-  margin-top: 12px;
+  margin-top: 14px;
   background: var(--btn-green-bg);
   color: var(--btn-green-txt);
   border: none;
-  border-radius: 18px;
-  height: 36px;
-  padding: 0 27px;
+  border-radius: 20px;
+  height: 38px;
+  padding: 0 28px;
   display: flex;
   align-items: center;
   font-size: 15px;
-  font-weight: 500;
+  font-weight: 600;
   cursor: pointer;
-  box-shadow: 0 1px 6px 0 #51c18522;
+  box-shadow: 0 2px 8px 0 rgba(81, 193, 133, 0.15);
   gap: 8px;
   outline: none;
-  transition: background 0.19s;
+  transition: all 0.2s ease;
+  min-width: 120px;
+  justify-content: center;
 }
 
 .primary-action-btn:hover,
 .primary-action-btn:focus {
   background: #d9f7e5;
+  box-shadow: 0 4px 12px 0 rgba(81, 193, 133, 0.25);
+  transform: translateY(-1px);
+}
+
+/* Score highlight styling */
+.score-highlight {
+  background: linear-gradient(135deg, #e8f5e8 0%, #d4f4d4 100%);
+  color: #2d5016;
+  font-weight: 700;
+  box-shadow: 0 3px 10px 0 rgba(81, 193, 133, 0.2);
+}
+
+.score-highlight:hover {
+  background: linear-gradient(135deg, #d4f4d4 0%, #c8f2c8 100%);
+  box-shadow: 0 5px 15px 0 rgba(81, 193, 133, 0.3);
 }
 
 @media (max-width: 730px) {
@@ -273,19 +301,24 @@ body, .App {
   .assessment-card {
     flex-direction: column;
     align-items: stretch;
-    padding: 17px 10px 14px 10px;
-    border-radius: 13px;
+    padding: 20px 14px 18px 14px;
+    border-radius: 15px;
   }
   .card-section-meta {
     align-items: stretch;
     margin-left: 0;
-    margin-top: 16px;
+    margin-top: 18px;
     min-width: 47px;
   }
   .card-section-avatar {
-    margin: 0 0 8px 0;
+    margin: 0 0 10px 0;
     align-items: center;
     min-width: 0;
+  }
+  .primary-action-btn {
+    min-width: 100px;
+    height: 36px;
+    font-size: 14px;
   }
 }
 
